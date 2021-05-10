@@ -1,0 +1,53 @@
+html {
+  font-family: 'Sailec', sans-serif; }
+
+body {
+  background-color: #ffffff; }
+
+.container {
+  width: 580px;
+  height: 246px;
+  background: #ffffff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 4px; }
+
+h1 {
+  font-family: 'Sailec';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #0d2b50; }
+
+form label + label {
+  margin-top: 10px; }
+
+form label {
+  font-family: 'Sailec';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(13, 43, 80, 0.7);
+  margin-left: 16px;
+  position: relative; }
+  form label span {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: #fc895b;
+    position: absolute;
+    left: -3%; }
+  form label input {
+    width: 40px;
+    height: 24px;
+    border: none;
+    background: #ebebeb;
+    border-radius: 4px; }
+
+
+/*# sourceMappingURL=/styles.434540e1.css.map */

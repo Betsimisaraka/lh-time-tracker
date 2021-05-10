@@ -29581,23 +29581,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Tasks = function Tasks() {
   return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
     for: "design"
-  }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("input", {
+  }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     id: "design",
     placeholder: "25%"
-  })), /*#__PURE__*/_react.default.createElement("label", {
+  }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "paceport"
-  }, "TCS: Paceport CMI", /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("input", {
+  }, "TCS: Paceport CMI", /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     id: "paceport",
     placeholder: "25%"
-  })), /*#__PURE__*/_react.default.createElement("label", {
+  }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "sprints"
-  }, "IHS: Sprints", /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("input", {
+  }, "IHS: Sprints", /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     id: "sprints",
     placeholder: "50%"
-  })));
+  }), /*#__PURE__*/_react.default.createElement("span", null)));
 };
 
 var _default = Tasks;
@@ -29617,7 +29617,9 @@ var _Tasks = _interopRequireDefault(require("./components/Tasks"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_Tasks.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_Tasks.default, null));
 };
 
 var _default = App;
@@ -29662,7 +29664,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36487" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32785" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
