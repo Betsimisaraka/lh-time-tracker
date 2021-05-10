@@ -29566,7 +29566,45 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/Tasks.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/InputRange.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var InputRange = function InputRange() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "wrapper"
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    className: "wrapper_label",
+    for: "range1"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    className: "wrapper_label",
+    type: "range",
+    id: "range1",
+    min: "0",
+    max: "100"
+  })), /*#__PURE__*/_react.default.createElement("label", {
+    className: "wrapper_label",
+    for: "range2"
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    className: "wrapper_input",
+    type: "range",
+    id: "range2",
+    min: "0",
+    max: "100"
+  })));
+};
+
+var _default = InputRange;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/Tasks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29612,6 +29650,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _InputRange = _interopRequireDefault(require("./components/InputRange"));
+
 var _Tasks = _interopRequireDefault(require("./components/Tasks"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29619,12 +29659,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var App = function App() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_Tasks.default, null));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null), /*#__PURE__*/_react.default.createElement(_Tasks.default, null));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./components/Tasks":"components/Tasks.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./components/InputRange":"components/InputRange.js","./components/Tasks":"components/Tasks.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

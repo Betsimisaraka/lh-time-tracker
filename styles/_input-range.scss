@@ -1,0 +1,9 @@
+.wrapper {
+  position: relative;
+  width: 420px;
+}
+
+.wrapper_label:nth-child(1) {
+  position: absolute;
+  z-index: 2;
+}

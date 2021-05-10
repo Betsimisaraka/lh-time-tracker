@@ -49,5 +49,13 @@ form label {
     background: #ebebeb;
     border-radius: 4px; }
 
+.wrapper {
+  position: relative;
+  width: 420px; }
+
+.wrapper_label:nth-child(1) {
+  position: absolute;
+  z-index: 2; }
+
 
 /*# sourceMappingURL=/styles.434540e1.css.map */
