@@ -29589,14 +29589,43 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function useRange() {
-  var _useState = (0, _react.useState)('10%'),
+  var _useState = (0, _react.useState)(25),
       _useState2 = _slicedToArray(_useState, 2),
-      firstRange = _useState2[0],
-      setFirstRange = _useState2[1];
+      firstRangeValue = _useState2[0],
+      setFirstRangeValue = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(25),
+      _useState4 = _slicedToArray(_useState3, 2),
+      secondRangeValue = _useState4[0],
+      setSecondRangeValue = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(50),
+      _useState6 = _slicedToArray(_useState5, 2),
+      thirdRangeValue = _useState6[0],
+      setThirdRangeValue = _useState6[1];
+
+  var onChangeFirstThumb = function onChangeFirstThumb(value) {
+    setFirstRangeValue(value);
+    setSecondRangeValue(100 - thirdRangeValue - value);
+  };
+
+  var onChangeSecondThumb = function onChangeSecondThumb(value) {
+    setSecondRangeValue(value);
+    setThirdRangeValue(100 - firstRangeValue - value);
+  };
+
+  var onChangeThirdThumb = function onChangeThirdThumb(value) {
+    setThirdRangeValue(value);
+    setSecondRangeValue(100 - firstRangeValue - value);
+  };
 
   return {
-    firstRange: firstRange,
-    setFirstRange: setFirstRange
+    firstRangeValue: firstRangeValue,
+    secondRangeValue: secondRangeValue,
+    thirdRangeValue: thirdRangeValue,
+    onChangeFirstThumb: onChangeFirstThumb,
+    onChangeThirdThumb: onChangeThirdThumb,
+    onChangeSecondThumb: onChangeSecondThumb
   };
 }
 
@@ -29612,14 +29641,15 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _useRange2 = _interopRequireDefault(require("../useRange"));
+var _useRange = _interopRequireDefault(require("../useRange"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var InputRange = function InputRange() {
-  var _useRange = (0, _useRange2.default)(),
-      firstRange = _useRange.firstRange;
-
+var InputRange = function InputRange(_ref) {
+  var firstRangeValue = _ref.firstRangeValue,
+      thirdRangeValue = _ref.thirdRangeValue,
+      onChangeFirstThumb = _ref.onChangeFirstThumb,
+      onChangeThirdThumb = _ref.onChangeThirdThumb;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -29630,7 +29660,11 @@ var InputRange = function InputRange() {
     type: "range",
     id: "range1",
     min: "0",
-    max: "100"
+    max: "100",
+    value: firstRangeValue,
+    onChange: function onChange(e) {
+      return onChangeFirstThumb(Number(e.target.value));
+    }
   })), /*#__PURE__*/_react.default.createElement("label", {
     className: "wrapper_label",
     for: "range2"
@@ -29639,7 +29673,11 @@ var InputRange = function InputRange() {
     type: "range",
     id: "range2",
     min: "0",
-    max: "100"
+    max: "100",
+    value: 100 - thirdRangeValue,
+    onChange: function onChange(e) {
+      return onChangeThirdThumb(100 - Number(e.target.value));
+    }
   })));
 };
 
@@ -29655,33 +29693,47 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _useRange2 = _interopRequireDefault(require("../useRange"));
+var _useRange = _interopRequireDefault(require("../useRange"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Tasks = function Tasks() {
-  var _useRange = (0, _useRange2.default)(),
-      firstRange = _useRange.firstRange;
-
+var Tasks = function Tasks(_ref) {
+  var firstRangeValue = _ref.firstRangeValue,
+      secondRangeValue = _ref.secondRangeValue,
+      thirdRangeValue = _ref.thirdRangeValue,
+      onChangeFirstThumb = _ref.onChangeFirstThumb,
+      onChangeSecondThumb = _ref.onChangeSecondThumb,
+      onChangeThirdThumb = _ref.onChangeThirdThumb;
   return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
     for: "design"
   }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
+    type: "number",
     id: "design",
-    value: firstRange // onChange={console.log('hello')}
-
+    min: "0",
+    value: firstRangeValue,
+    onChange: function onChange(e) {
+      return onChangeFirstThumb(Number(e.target.value));
+    }
   }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "paceport"
   }, "TCS: Paceport CMI", /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
+    type: "number",
     id: "paceport",
-    placeholder: "25%"
+    min: "0",
+    value: secondRangeValue <= 0 ? 0 : secondRangeValue,
+    onChange: function onChange(e) {
+      return onChangeSecondThumb(Number(e.target.value));
+    }
   }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "sprints"
   }, "IHS: Sprints", /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
+    type: "number",
     id: "sprints",
-    placeholder: "50%"
+    min: "0",
+    value: thirdRangeValue,
+    onChange: function onChange(e) {
+      return onChangeThirdThumb(Number(e.target.value));
+    }
   }), /*#__PURE__*/_react.default.createElement("span", null)));
 };
 
@@ -29701,14 +29753,34 @@ var _InputRange = _interopRequireDefault(require("./components/InputRange"));
 
 var _Tasks = _interopRequireDefault(require("./components/Tasks"));
 
-var _useRange = require("./useRange");
+var _useRange2 = _interopRequireDefault(require("./useRange"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
+  var _useRange = (0, _useRange2.default)(),
+      firstRangeValue = _useRange.firstRangeValue,
+      secondRangeValue = _useRange.secondRangeValue,
+      thirdRangeValue = _useRange.thirdRangeValue,
+      onChangeFirstThumb = _useRange.onChangeFirstThumb,
+      onChangeSecondThumb = _useRange.onChangeSecondThumb,
+      onChangeThirdThumb = _useRange.onChangeThirdThumb;
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, {
+    firstRangeValue: firstRangeValue,
+    thirdRangeValue: thirdRangeValue,
+    onChangeFirstThumb: onChangeFirstThumb,
+    onChangeThirdThumb: onChangeThirdThumb
+  }), /*#__PURE__*/_react.default.createElement(_Tasks.default, {
+    firstRangeValue: firstRangeValue,
+    thirdRangeValue: thirdRangeValue,
+    secondRangeValue: secondRangeValue,
+    onChangeFirstThumb: onChangeFirstThumb,
+    onChangeSecondThumb: onChangeSecondThumb,
+    onChangeThirdThumb: onChangeThirdThumb
+  }));
 };
 
 var _default = App;

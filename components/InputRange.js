@@ -1,8 +1,12 @@
 import React from 'react'
 import useRange from '../useRange'
 
-const InputRange = () => {
-  const { firstRange } = useRange()
+const InputRange = ({
+  firstRangeValue,
+  thirdRangeValue,
+  onChangeFirstThumb,
+  onChangeThirdThumb,
+}) => {
   return (
     <div className='wrapper'>
       <label className='wrapper_label' for='range1'>
@@ -12,6 +16,8 @@ const InputRange = () => {
           id='range1'
           min='0'
           max='100'
+          value={firstRangeValue}
+          onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
         />
       </label>
       <label className='wrapper_label' for='range2'>
@@ -21,6 +27,8 @@ const InputRange = () => {
           id='range2'
           min='0'
           max='100'
+          value={100 - thirdRangeValue}
+          onChange={(e) => onChangeThirdThumb(100 - Number(e.target.value))}
         />
       </label>
     </div>
