@@ -1,11 +1,19 @@
 import React from 'react'
+import useRange from '../useRange'
 
 const Tasks = () => {
+  const { firstRange } = useRange()
+
   return (
     <form>
       <label for='design'>
         LH: Website: Design
-        <input type='text' id='design' placeholder='25%' />
+        <input
+          type='text'
+          id='design'
+          value={firstRange}
+          // onChange={console.log('hello')}
+        />
         <span></span>
       </label>
       <label for='paceport'>

@@ -1,6 +1,8 @@
 import React from 'react'
+import useRange from '../useRange'
 
 const InputRange = () => {
+  const { firstRange } = useRange()
   return (
     <div className='wrapper'>
       <label className='wrapper_label' for='range1'>

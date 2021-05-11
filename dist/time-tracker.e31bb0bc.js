@@ -29566,7 +29566,43 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"components/InputRange.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"useRange.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = require("react");
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function useRange() {
+  var _useState = (0, _react.useState)('10%'),
+      _useState2 = _slicedToArray(_useState, 2),
+      firstRange = _useState2[0],
+      setFirstRange = _useState2[1];
+
+  return {
+    firstRange: firstRange,
+    setFirstRange: setFirstRange
+  };
+}
+
+var _default = useRange;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"components/InputRange.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29576,9 +29612,14 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _useRange2 = _interopRequireDefault(require("../useRange"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var InputRange = function InputRange() {
+  var _useRange = (0, _useRange2.default)(),
+      firstRange = _useRange.firstRange;
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -29604,7 +29645,7 @@ var InputRange = function InputRange() {
 
 var _default = InputRange;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"components/Tasks.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../useRange":"useRange.js"}],"components/Tasks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29614,15 +29655,21 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _useRange2 = _interopRequireDefault(require("../useRange"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Tasks = function Tasks() {
+  var _useRange = (0, _useRange2.default)(),
+      firstRange = _useRange.firstRange;
+
   return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
     for: "design"
   }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     id: "design",
-    placeholder: "25%"
+    value: firstRange // onChange={console.log('hello')}
+
   }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "paceport"
   }, "TCS: Paceport CMI", /*#__PURE__*/_react.default.createElement("input", {
@@ -29640,7 +29687,7 @@ var Tasks = function Tasks() {
 
 var _default = Tasks;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../useRange":"useRange.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29654,17 +29701,19 @@ var _InputRange = _interopRequireDefault(require("./components/InputRange"));
 
 var _Tasks = _interopRequireDefault(require("./components/Tasks"));
 
+var _useRange = require("./useRange");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null), /*#__PURE__*/_react.default.createElement(_Tasks.default, null));
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null));
 };
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./components/InputRange":"components/InputRange.js","./components/Tasks":"components/Tasks.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./components/InputRange":"components/InputRange.js","./components/Tasks":"components/Tasks.js","./useRange":"useRange.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29704,7 +29753,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32785" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35491" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
