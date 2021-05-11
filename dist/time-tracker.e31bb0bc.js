@@ -29609,12 +29609,12 @@ function useRange() {
     setSecondRangeValue(100 - thirdRangeValue - value);
   };
 
-  var onChangeSecondThumb = function onChangeSecondThumb(value) {
+  var onChangeMiddleRange = function onChangeMiddleRange(value) {
     setSecondRangeValue(value);
     setThirdRangeValue(100 - firstRangeValue - value);
   };
 
-  var onChangeThirdThumb = function onChangeThirdThumb(value) {
+  var onChangeSecondThumb = function onChangeSecondThumb(value) {
     setThirdRangeValue(value);
     setSecondRangeValue(100 - firstRangeValue - value);
   };
@@ -29624,8 +29624,8 @@ function useRange() {
     secondRangeValue: secondRangeValue,
     thirdRangeValue: thirdRangeValue,
     onChangeFirstThumb: onChangeFirstThumb,
-    onChangeThirdThumb: onChangeThirdThumb,
-    onChangeSecondThumb: onChangeSecondThumb
+    onChangeSecondThumb: onChangeSecondThumb,
+    onChangeMiddleRange: onChangeMiddleRange
   };
 }
 
@@ -29649,7 +29649,7 @@ var InputRange = function InputRange(_ref) {
   var firstRangeValue = _ref.firstRangeValue,
       thirdRangeValue = _ref.thirdRangeValue,
       onChangeFirstThumb = _ref.onChangeFirstThumb,
-      onChangeThirdThumb = _ref.onChangeThirdThumb;
+      onChangeSecondThumb = _ref.onChangeSecondThumb;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/_react.default.createElement("label", {
@@ -29676,7 +29676,7 @@ var InputRange = function InputRange(_ref) {
     max: "100",
     value: 100 - thirdRangeValue,
     onChange: function onChange(e) {
-      return onChangeThirdThumb(100 - Number(e.target.value));
+      return onChangeSecondThumb(100 - Number(e.target.value));
     }
   })));
 };
@@ -29702,8 +29702,8 @@ var Tasks = function Tasks(_ref) {
       secondRangeValue = _ref.secondRangeValue,
       thirdRangeValue = _ref.thirdRangeValue,
       onChangeFirstThumb = _ref.onChangeFirstThumb,
-      onChangeSecondThumb = _ref.onChangeSecondThumb,
-      onChangeThirdThumb = _ref.onChangeThirdThumb;
+      onChangeMiddleRange = _ref.onChangeMiddleRange,
+      onChangeSecondThumb = _ref.onChangeSecondThumb;
   return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
     for: "design"
   }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("input", {
@@ -29722,7 +29722,7 @@ var Tasks = function Tasks(_ref) {
     min: "0",
     value: secondRangeValue <= 0 ? 0 : secondRangeValue,
     onChange: function onChange(e) {
-      return onChangeSecondThumb(Number(e.target.value));
+      return onChangeMiddleRange(Number(e.target.value));
     }
   }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
     for: "sprints"
@@ -29732,7 +29732,7 @@ var Tasks = function Tasks(_ref) {
     min: "0",
     value: thirdRangeValue,
     onChange: function onChange(e) {
-      return onChangeThirdThumb(Number(e.target.value));
+      return onChangeSecondThumb(Number(e.target.value));
     }
   }), /*#__PURE__*/_react.default.createElement("span", null)));
 };
@@ -29763,8 +29763,8 @@ var App = function App() {
       secondRangeValue = _useRange.secondRangeValue,
       thirdRangeValue = _useRange.thirdRangeValue,
       onChangeFirstThumb = _useRange.onChangeFirstThumb,
-      onChangeSecondThumb = _useRange.onChangeSecondThumb,
-      onChangeThirdThumb = _useRange.onChangeThirdThumb;
+      onChangeMiddleRange = _useRange.onChangeMiddleRange,
+      onChangeSecondThumb = _useRange.onChangeSecondThumb;
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
@@ -29772,14 +29772,14 @@ var App = function App() {
     firstRangeValue: firstRangeValue,
     thirdRangeValue: thirdRangeValue,
     onChangeFirstThumb: onChangeFirstThumb,
-    onChangeThirdThumb: onChangeThirdThumb
+    onChangeSecondThumb: onChangeSecondThumb
   }), /*#__PURE__*/_react.default.createElement(_Tasks.default, {
     firstRangeValue: firstRangeValue,
     thirdRangeValue: thirdRangeValue,
     secondRangeValue: secondRangeValue,
     onChangeFirstThumb: onChangeFirstThumb,
-    onChangeSecondThumb: onChangeSecondThumb,
-    onChangeThirdThumb: onChangeThirdThumb
+    onChangeMiddleRange: onChangeMiddleRange,
+    onChangeSecondThumb: onChangeSecondThumb
   }));
 };
 

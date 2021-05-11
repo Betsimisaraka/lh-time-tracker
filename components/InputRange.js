@@ -5,7 +5,7 @@ const InputRange = ({
   firstRangeValue,
   thirdRangeValue,
   onChangeFirstThumb,
-  onChangeThirdThumb,
+  onChangeSecondThumb,
 }) => {
   return (
     <div className='wrapper'>
@@ -28,7 +28,7 @@ const InputRange = ({
           min='0'
           max='100'
           value={100 - thirdRangeValue}
-          onChange={(e) => onChangeThirdThumb(100 - Number(e.target.value))}
+          onChange={(e) => onChangeSecondThumb(100 - Number(e.target.value))}
         />
       </label>
     </div>

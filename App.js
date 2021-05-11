@@ -9,8 +9,8 @@ const App = () => {
     secondRangeValue,
     thirdRangeValue,
     onChangeFirstThumb,
+    onChangeMiddleRange,
     onChangeSecondThumb,
-    onChangeThirdThumb,
   } = useRange()
 
   return (
@@ -20,15 +20,15 @@ const App = () => {
         firstRangeValue={firstRangeValue}
         thirdRangeValue={thirdRangeValue}
         onChangeFirstThumb={onChangeFirstThumb}
-        onChangeThirdThumb={onChangeThirdThumb}
+        onChangeSecondThumb={onChangeSecondThumb}
       />
       <Tasks
         firstRangeValue={firstRangeValue}
         thirdRangeValue={thirdRangeValue}
         secondRangeValue={secondRangeValue}
         onChangeFirstThumb={onChangeFirstThumb}
+        onChangeMiddleRange={onChangeMiddleRange}
         onChangeSecondThumb={onChangeSecondThumb}
-        onChangeThirdThumb={onChangeThirdThumb}
       />
     </div>
   )

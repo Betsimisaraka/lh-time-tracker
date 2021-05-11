@@ -6,8 +6,8 @@ const Tasks = ({
   secondRangeValue,
   thirdRangeValue,
   onChangeFirstThumb,
+  onChangeMiddleRange,
   onChangeSecondThumb,
-  onChangeThirdThumb,
 }) => {
   return (
     <form>
@@ -29,7 +29,7 @@ const Tasks = ({
           id='paceport'
           min='0'
           value={secondRangeValue <= 0 ? 0 : secondRangeValue}
-          onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
+          onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
         />
         <span></span>
       </label>
@@ -40,7 +40,7 @@ const Tasks = ({
           id='sprints'
           min='0'
           value={thirdRangeValue}
-          onChange={(e) => onChangeThirdThumb(Number(e.target.value))}
+          onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
         />
         <span></span>
       </label>
