@@ -1,12 +1,36 @@
 import React from 'react'
-import useRange from '../useRange'
 
-const InputRange = ({
-  firstRangeValue,
-  thirdRangeValue,
-  onChangeFirstThumb,
-  onChangeSecondThumb,
-}) => {
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setFirstRangeValue,
+  setSecondRangeValue,
+  setThirdRangeValue,
+} from '../redux/Actions'
+
+const InputRange = () => {
+  const firstRangeValue = useSelector((state) => state.firstRangeValue)
+  const secondRangeValue = useSelector((state) => state.secondRangeValue)
+  const thirdRangeValue = useSelector((state) => state.thirdRangeValue)
+  const dispatch = useDispatch()
+
+  const onChangeFirstThumb = (value) => {
+    if (secondRangeValue <= 0) {
+      return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
+    } else {
+      dispatch(setFirstRangeValue(value))
+      dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
+    }
+  }
+
+  const onChangeSecondThumb = (value) => {
+    if (secondRangeValue <= 0) {
+      return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
+    } else {
+      dispatch(setThirdRangeValue(value))
+      dispatch(setSecondRangeValue(100 - firstRangeValue - value))
+    }
+  }
+
   return (
     <div className='wrapper'>
       <label className='wrapper_label' for='range1'>
