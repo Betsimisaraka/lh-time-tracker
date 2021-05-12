@@ -48,6 +48,7 @@ const Tasks = () => {
           id='design'
           min='0'
           max='100'
+          tabIndex='3'
           value={firstRangeValue}
           onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
         />
@@ -60,6 +61,7 @@ const Tasks = () => {
           id='paceport'
           min='0'
           max='100'
+          tabIndex='4'
           value={secondRangeValue <= 0 ? 0 : secondRangeValue}
           onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
         />
@@ -72,6 +74,7 @@ const Tasks = () => {
           id='sprints'
           min='0'
           max='100'
+          tabIndex='5'
           value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
           onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
         />

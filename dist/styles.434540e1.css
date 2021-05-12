@@ -5,11 +5,13 @@ body {
   background-color: #ffffff; }
 
 .container {
-  width: 580px;
+  max-width: 580px;
   height: 246px;
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-  border-radius: 4px; }
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto; }
 
 h1 {
   font-family: 'Sailec';
@@ -18,10 +20,15 @@ h1 {
   font-size: 20px;
   line-height: 20px;
   text-align: center;
-  color: #0d2b50; }
+  color: #0d2b50;
+  margin: 0;
+  padding-top: 24px;
+  padding-bottom: 32px; }
 
 .tasks {
-  margin-top: 40px; }
+  margin-top: 44px;
+  margin-right: 73px;
+  margin-left: 80px; }
 
 .tasks .tasks__label + .tasks__label {
   margin-top: 10px; }
@@ -36,19 +43,24 @@ h1 {
   align-items: center;
   justify-content: space-between;
   color: rgba(13, 43, 80, 0.7);
-  margin-left: 16px;
-  position: relative; }
+  position: relative;
+  padding-left: 20px; }
   .tasks .tasks__label::after {
     content: '%';
     position: absolute;
-    left: 98%; }
+    left: 97%; }
   .tasks .tasks__label .tasks__label--span {
     width: 12px;
     height: 12px;
     border-radius: 2px;
-    background: #fc895b;
     position: absolute;
-    left: -3%; }
+    left: 0%; }
+  .tasks .tasks__label .tasks__label--design {
+    background: #fc895b; }
+  .tasks .tasks__label .tasks__label--paceport {
+    background: #ff268b; }
+  .tasks .tasks__label .tasks__label--sprints {
+    background: #b71bba; }
 
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
@@ -61,6 +73,7 @@ input[type='number'] {
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  cursor: pointer;
   width: 40px;
   height: 24px;
   border: none;
@@ -74,12 +87,12 @@ input[type='number'] {
   position: relative;
   display: block;
   width: 100%; }
-  .wrapper .wrapper__label input[type='range'] {
-    position: absolute; }
 
 .wrapper__label {
   position: absolute;
-  width: 420px; }
+  width: 420px;
+  margin-left: 80px;
+  margin-right: 80px; }
 
 input[type='range'] {
   box-sizing: border-box;

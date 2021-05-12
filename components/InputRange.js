@@ -35,23 +35,25 @@ const InputRange = () => {
     <div className='wrapper'>
       <label className='wrapper__label' htmlFor='firstRange'>
         <input
-          className='wrapper__input'
+          className='wrapper__input--thumb1'
           type='range'
           id='firstRange'
           min='0'
           max='100'
           value={firstRangeValue}
+          tabIndex='1'
           onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
         />
       </label>
       <label className='wrapper__label' htmlFor='secondRange'>
         <input
-          className='wrapper__input'
+          className='wrapper__input--thumb2'
           type='range'
           id='secondRange'
           min='0'
           max='100'
           value={100 - thirdRangeValue}
+          tabIndex='2'
           onChange={(e) => onChangeSecondThumb(100 - Number(e.target.value))}
         />
       </label>

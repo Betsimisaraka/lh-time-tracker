@@ -32451,12 +32451,13 @@ var InputRange = function InputRange() {
     className: "wrapper__label",
     htmlFor: "firstRange"
   }, /*#__PURE__*/_react.default.createElement("input", {
-    className: "wrapper__input",
+    className: "wrapper__input--thumb1",
     type: "range",
     id: "firstRange",
     min: "0",
     max: "100",
     value: firstRangeValue,
+    tabIndex: "1",
     onChange: function onChange(e) {
       return onChangeFirstThumb(Number(e.target.value));
     }
@@ -32464,12 +32465,13 @@ var InputRange = function InputRange() {
     className: "wrapper__label",
     htmlFor: "secondRange"
   }, /*#__PURE__*/_react.default.createElement("input", {
-    className: "wrapper__input",
+    className: "wrapper__input--thumb2",
     type: "range",
     id: "secondRange",
     min: "0",
     max: "100",
     value: 100 - thirdRangeValue,
+    tabIndex: "2",
     onChange: function onChange(e) {
       return onChangeSecondThumb(100 - Number(e.target.value));
     }
@@ -32543,6 +32545,7 @@ var Tasks = function Tasks() {
     id: "design",
     min: "0",
     max: "100",
+    tabIndex: "3",
     value: firstRangeValue,
     onChange: function onChange(e) {
       return onChangeFirstThumb(Number(e.target.value));
@@ -32557,6 +32560,7 @@ var Tasks = function Tasks() {
     id: "paceport",
     min: "0",
     max: "100",
+    tabIndex: "4",
     value: secondRangeValue <= 0 ? 0 : secondRangeValue,
     onChange: function onChange(e) {
       return onChangeMiddleRange(Number(e.target.value));
@@ -32571,6 +32575,7 @@ var Tasks = function Tasks() {
     id: "sprints",
     min: "0",
     max: "100",
+    tabIndex: "5",
     value: thirdRangeValue <= 0 ? 0 : thirdRangeValue,
     onChange: function onChange(e) {
       return onChangeSecondThumb(Number(e.target.value));

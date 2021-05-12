@@ -2,15 +2,13 @@
   position: relative;
   display: block;
   width: 100%;
-
-  & .wrapper__label input[type='range'] {
-    position: absolute;
-  }
 }
 
 .wrapper__label {
   position: absolute;
   width: 420px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 input[type='range'] {

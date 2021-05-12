@@ -1,5 +1,7 @@
 .tasks {
-  margin-top: 40px;
+  margin-top: 44px;
+  margin-right: 73px;
+  margin-left: 80px;
 }
 
 .tasks .tasks__label + .tasks__label {
@@ -16,20 +18,28 @@
   align-items: center;
   justify-content: space-between;
   color: rgba(13, 43, 80, 0.7);
-  margin-left: 16px;
   position: relative;
+  padding-left: 20px;
   &::after {
     content: '%';
     position: absolute;
-    left: 98%;
+    left: 97%;
   }
   & .tasks__label--span {
     width: 12px;
     height: 12px;
     border-radius: 2px;
-    background: #fc895b;
     position: absolute;
-    left: -3%;
+    left: 0%;
+  }
+  & .tasks__label--design {
+    background: #fc895b;
+  }
+  & .tasks__label--paceport {
+    background: #ff268b;
+  }
+  & .tasks__label--sprints {
+    background: #b71bba;
   }
 }
 
@@ -45,6 +55,7 @@ input[type='number'] {
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+  cursor: pointer;
   width: 40px;
   height: 24px;
   border: none;
