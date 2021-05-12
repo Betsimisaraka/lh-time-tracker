@@ -3,12 +3,12 @@
   display: block;
   width: 100%;
 
-  & .wrapper_label input[type='range'] {
+  & .wrapper__label input[type='range'] {
     position: absolute;
   }
 }
 
-.wrapper_label {
+.wrapper__label {
   position: absolute;
   width: 420px;
 }

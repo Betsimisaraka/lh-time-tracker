@@ -23,6 +23,9 @@ const Tasks = () => {
   }
 
   const onChangeMiddleRange = (value) => {
+    if (thirdRangeValue <= 0) {
+      return dispatch(setThirdRangeValue(100 - firstRangeValue - value))
+    }
     dispatch(setSecondRangeValue(value))
     dispatch(setThirdRangeValue(100 - firstRangeValue - value))
   }
@@ -37,41 +40,44 @@ const Tasks = () => {
   }
 
   return (
-    <form>
-      <label for='design'>
+    <div className='tasks'>
+      <label htmlFor='design' className='tasks__label'>
         LH: Website: Design
         <input
           type='number'
           id='design'
           min='0'
+          max='100'
           value={firstRangeValue}
           onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
         />
-        <span></span>
+        <span className='tasks__label--design tasks__label--span'></span>
       </label>
-      <label for='paceport'>
+      <label htmlFor='paceport' className='tasks__label'>
         TCS: Paceport CMI
         <input
           type='number'
           id='paceport'
           min='0'
+          max='100'
           value={secondRangeValue <= 0 ? 0 : secondRangeValue}
           onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
         />
-        <span></span>
+        <span className='tasks__label--paceport tasks__label--span'></span>
       </label>
-      <label for='sprints'>
+      <label htmlFor='sprints' className='tasks__label'>
         IHS: Sprints
         <input
           type='number'
           id='sprints'
           min='0'
-          value={thirdRangeValue}
+          max='100'
+          value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
           onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
         />
-        <span></span>
+        <span className='tasks__label--sprints tasks__label--span'></span>
       </label>
-    </form>
+    </div>
   )
 }
 

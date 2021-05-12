@@ -32448,12 +32448,12 @@ var InputRange = function InputRange() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "wrapper"
   }, /*#__PURE__*/_react.default.createElement("label", {
-    className: "wrapper_label",
-    for: "range1"
+    className: "wrapper__label",
+    htmlFor: "firstRange"
   }, /*#__PURE__*/_react.default.createElement("input", {
-    className: "wrapper_label",
+    className: "wrapper__input",
     type: "range",
-    id: "range1",
+    id: "firstRange",
     min: "0",
     max: "100",
     value: firstRangeValue,
@@ -32461,12 +32461,12 @@ var InputRange = function InputRange() {
       return onChangeFirstThumb(Number(e.target.value));
     }
   })), /*#__PURE__*/_react.default.createElement("label", {
-    className: "wrapper_label",
-    for: "range2"
+    className: "wrapper__label",
+    htmlFor: "secondRange"
   }, /*#__PURE__*/_react.default.createElement("input", {
-    className: "wrapper_input",
+    className: "wrapper__input",
     type: "range",
-    id: "range2",
+    id: "secondRange",
     min: "0",
     max: "100",
     value: 100 - thirdRangeValue,
@@ -32516,6 +32516,10 @@ var Tasks = function Tasks() {
   };
 
   var onChangeMiddleRange = function onChangeMiddleRange(value) {
+    if (thirdRangeValue <= 0) {
+      return dispatch((0, _Actions.setThirdRangeValue)(100 - firstRangeValue - value));
+    }
+
     dispatch((0, _Actions.setSecondRangeValue)(value));
     dispatch((0, _Actions.setThirdRangeValue)(100 - firstRangeValue - value));
   };
@@ -32529,37 +32533,51 @@ var Tasks = function Tasks() {
     }
   };
 
-  return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", {
-    for: "design"
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "tasks"
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "design",
+    className: "tasks__label"
   }, "LH: Website: Design", /*#__PURE__*/_react.default.createElement("input", {
     type: "number",
     id: "design",
     min: "0",
+    max: "100",
     value: firstRangeValue,
     onChange: function onChange(e) {
       return onChangeFirstThumb(Number(e.target.value));
     }
-  }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
-    for: "paceport"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "tasks__label--design tasks__label--span"
+  })), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "paceport",
+    className: "tasks__label"
   }, "TCS: Paceport CMI", /*#__PURE__*/_react.default.createElement("input", {
     type: "number",
     id: "paceport",
     min: "0",
+    max: "100",
     value: secondRangeValue <= 0 ? 0 : secondRangeValue,
     onChange: function onChange(e) {
       return onChangeMiddleRange(Number(e.target.value));
     }
-  }), /*#__PURE__*/_react.default.createElement("span", null)), /*#__PURE__*/_react.default.createElement("label", {
-    for: "sprints"
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "tasks__label--paceport tasks__label--span"
+  })), /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "sprints",
+    className: "tasks__label"
   }, "IHS: Sprints", /*#__PURE__*/_react.default.createElement("input", {
     type: "number",
     id: "sprints",
     min: "0",
-    value: thirdRangeValue,
+    max: "100",
+    value: thirdRangeValue <= 0 ? 0 : thirdRangeValue,
     onChange: function onChange(e) {
       return onChangeSecondThumb(Number(e.target.value));
     }
-  }), /*#__PURE__*/_react.default.createElement("span", null)));
+  }), /*#__PURE__*/_react.default.createElement("span", {
+    className: "tasks__label--sprints tasks__label--span"
+  })));
 };
 
 var _default = Tasks;
