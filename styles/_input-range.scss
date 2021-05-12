@@ -9,6 +9,12 @@
   width: 420px;
   margin-left: 80px;
   margin-right: 80px;
+  // &:first-child input[type='range'] {
+  //   background: #fc895b;
+  // }
+  // &:last-child input[type='range'] {
+  //   background: red;
+  // }
 }
 
 input[type='range'] {
@@ -21,35 +27,25 @@ input[type='range'] {
   border: 0;
   outline: none;
   pointer-events: none;
-
+  -webkit-appearance: none;
+  width: 100%;
   &:active,
   &:focus {
     outline: none;
   }
 }
 
-input[type='range'] {
-  -webkit-appearance: none;
-  width: 100%;
-}
-
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
 input[type='range']:focus {
   outline: none;
 }
 
-input[type='range']::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
+input[type='range']::-webkit-slider-runnable-track {
+  z-index: 50;
+  position: relative;
 }
 
 input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 12px;
   height: 12px;
   border-radius: 50%;
