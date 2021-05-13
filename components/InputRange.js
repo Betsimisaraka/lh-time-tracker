@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -35,6 +35,11 @@ const InputRange = () => {
     <form>
       <div className='wrapper'>
         <label className='wrapper__label' htmlFor='firstRange'>
+          <div
+            className='mask background1'
+            style={{
+              width: `${firstRangeValue}%`,
+            }}></div>
           <input
             className='wrapper__input--thumb1'
             type='range'
@@ -46,6 +51,11 @@ const InputRange = () => {
           />
         </label>
         <label className='wrapper__label' htmlFor='secondRange'>
+          <div
+            className=' mask background2'
+            style={{
+              width: `${100 - thirdRangeValue}%`,
+            }}></div>
           <input
             className='wrapper__input--thumb2'
             type='range'

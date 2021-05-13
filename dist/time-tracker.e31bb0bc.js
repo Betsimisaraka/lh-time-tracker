@@ -32407,15 +32407,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
 var _Actions = require("../redux/Actions");
 
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var InputRange = function InputRange() {
   var firstRangeValue = (0, _reactRedux.useSelector)(function (state) {
@@ -32452,7 +32450,12 @@ var InputRange = function InputRange() {
   }, /*#__PURE__*/_react.default.createElement("label", {
     className: "wrapper__label",
     htmlFor: "firstRange"
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "mask background1",
+    style: {
+      width: "".concat(firstRangeValue, "%")
+    }
+  }), /*#__PURE__*/_react.default.createElement("input", {
     className: "wrapper__input--thumb1",
     type: "range",
     id: "firstRange",
@@ -32465,7 +32468,12 @@ var InputRange = function InputRange() {
   })), /*#__PURE__*/_react.default.createElement("label", {
     className: "wrapper__label",
     htmlFor: "secondRange"
-  }, /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: " mask background2",
+    style: {
+      width: "".concat(100 - thirdRangeValue, "%")
+    }
+  }), /*#__PURE__*/_react.default.createElement("input", {
     className: "wrapper__input--thumb2",
     type: "range",
     id: "secondRange",
@@ -32545,7 +32553,6 @@ var Tasks = function Tasks() {
     id: "design",
     min: "0",
     max: "100",
-    tabIndex: "3",
     value: firstRangeValue,
     onChange: function onChange(e) {
       return onChangeFirstThumb(Number(e.target.value));
@@ -32560,7 +32567,6 @@ var Tasks = function Tasks() {
     id: "paceport",
     min: "0",
     max: "100",
-    tabIndex: "4",
     value: secondRangeValue <= 0 ? 0 : secondRangeValue,
     onChange: function onChange(e) {
       return onChangeMiddleRange(Number(e.target.value));
@@ -32575,7 +32581,6 @@ var Tasks = function Tasks() {
     id: "sprints",
     min: "0",
     max: "100",
-    tabIndex: "5",
     value: thirdRangeValue <= 0 ? 0 : thirdRangeValue,
     onChange: function onChange(e) {
       return onChangeSecondThumb(Number(e.target.value));
@@ -33435,7 +33440,9 @@ var App = function App() {
     store: _Reducers.default
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null), /*#__PURE__*/_react.default.createElement(_Tasks.default, null)));
+  }, /*#__PURE__*/_react.default.createElement("h1", {
+    className: "container__heading"
+  }, "How did you divide your time?"), /*#__PURE__*/_react.default.createElement(_InputRange.default, null), /*#__PURE__*/_react.default.createElement(_Tasks.default, null)));
 };
 
 var _default = App;
@@ -33480,7 +33487,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39539" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

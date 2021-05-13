@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <div className='container'>
-        <h1>How did you divide your time?</h1>
+        <h1 className='container__heading'>How did you divide your time?</h1>
         <InputRange />
         <Tasks />
       </div>

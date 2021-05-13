@@ -1,7 +1,18 @@
+@mixin small_font {
+  font-family: 'Sailec';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .tasks {
-  margin-top: 44px;
-  margin-right: 73px;
-  margin-left: 80px;
+  margin-top: 56px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 427px;
+  width: 100%;
+  padding-bottom: 22px;
 }
 
 .tasks .tasks__label + .tasks__label {
@@ -9,12 +20,9 @@
 }
 
 .tasks .tasks__label {
-  font-family: 'Sailec';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
+  @include small_font;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   color: rgba(13, 43, 80, 0.7);
@@ -49,11 +57,7 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 input[type='number'] {
-  font-family: 'Sailec';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
+  @include small_font;
   text-align: center;
   cursor: pointer;
   width: 40px;
