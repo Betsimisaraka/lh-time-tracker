@@ -1,5 +1,5 @@
 @mixin small_font {
-  font-family: 'Sailec';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -28,10 +28,19 @@
   color: rgba(13, 43, 80, 0.7);
   position: relative;
   padding-left: 20px;
-  &::after {
-    content: '%';
-    position: absolute;
-    left: 97%;
+  & .tasks__input--wrapper {
+    width: 40px;
+    height: 24px;
+    background: #ebebeb;
+    border-radius: 4px;
+    display: flex;
+    position: relative;
+    &::after {
+      content: '%';
+      position: absolute;
+      left: 55%;
+      top: 17%;
+    }
   }
   & .tasks__label--span {
     width: 12px;
@@ -58,14 +67,15 @@ input[type='number']::-webkit-outer-spin-button {
 
 input[type='number'] {
   @include small_font;
-  text-align: center;
+  background: transparent;
+  width: 100%;
   cursor: pointer;
-  width: 40px;
-  height: 24px;
   border: none;
-  background: #ebebeb;
-  border-radius: 4px;
   color: rgba(13, 43, 80, 0.7);
-  padding: 0;
   margin: 0;
+  padding-left: 5px;
+  padding-right: 0;
+  &:focus {
+    outline: none;
+  }
 }

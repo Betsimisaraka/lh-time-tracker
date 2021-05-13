@@ -43,38 +43,44 @@ const Tasks = () => {
     <div className='tasks'>
       <label htmlFor='design' className='tasks__label'>
         LH: Website: Design
-        <input
-          type='number'
-          id='design'
-          min='0'
-          max='100'
-          value={firstRangeValue}
-          onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
-        />
+        <div className='tasks__input--wrapper'>
+          <input
+            type='number'
+            id='design'
+            min='0'
+            max='100'
+            value={firstRangeValue}
+            onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
+          />
+        </div>
         <span className='tasks__label--design tasks__label--span'></span>
       </label>
       <label htmlFor='paceport' className='tasks__label'>
         TCS: Paceport CMI
-        <input
-          type='number'
-          id='paceport'
-          min='0'
-          max='100'
-          value={secondRangeValue <= 0 ? 0 : secondRangeValue}
-          onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
-        />
+        <div className='tasks__input--wrapper'>
+          <input
+            type='number'
+            id='paceport'
+            min='0'
+            max='100'
+            value={secondRangeValue <= 0 ? 0 : secondRangeValue}
+            onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
+          />
+        </div>
         <span className='tasks__label--paceport tasks__label--span'></span>
       </label>
       <label htmlFor='sprints' className='tasks__label'>
         IHS: Sprints
-        <input
-          type='number'
-          id='sprints'
-          min='0'
-          max='100'
-          value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
-          onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
-        />
+        <div className='tasks__input--wrapper'>
+          <input
+            type='number'
+            id='sprints'
+            min='0'
+            max='100'
+            value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
+            onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
+          />
+        </div>
         <span className='tasks__label--sprints tasks__label--span'></span>
       </label>
     </div>

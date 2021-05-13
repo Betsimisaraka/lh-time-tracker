@@ -3,19 +3,22 @@ html {
 
 body {
   background-color: #ffffff;
-  padding: 0; }
+  padding: 0;
+  margin: 0; }
 
 .container {
-  max-width: 580px;
-  height: 246px;
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto; }
+  margin-top: 208px;
+  margin-bottom: 208px;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin-right: 10px;
+  margin-left: 10px; }
 
 .container__heading {
-  font-family: 'Sailec';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -25,6 +28,22 @@ body {
   margin: 0;
   padding-top: 24px;
   padding-bottom: 32px; }
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 580px;
+    height: 246px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: unset;
+    margin-bottom: unset;
+    padding-left: unset;
+    padding-right: unset; } }
 
 .tasks {
   margin-top: 56px;
@@ -38,7 +57,7 @@ body {
   margin-top: 10px; }
 
 .tasks .tasks__label {
-  font-family: 'Sailec';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -50,10 +69,18 @@ body {
   color: rgba(13, 43, 80, 0.7);
   position: relative;
   padding-left: 20px; }
-  .tasks .tasks__label::after {
-    content: '%';
-    position: absolute;
-    left: 97%; }
+  .tasks .tasks__label .tasks__input--wrapper {
+    width: 40px;
+    height: 24px;
+    background: #ebebeb;
+    border-radius: 4px;
+    display: flex;
+    position: relative; }
+    .tasks .tasks__label .tasks__input--wrapper::after {
+      content: '%';
+      position: absolute;
+      left: 55%;
+      top: 17%; }
   .tasks .tasks__label .tasks__label--span {
     width: 12px;
     height: 12px;
@@ -72,21 +99,21 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none; }
 
 input[type='number'] {
-  font-family: 'Sailec';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
-  text-align: center;
+  background: transparent;
+  width: 100%;
   cursor: pointer;
-  width: 40px;
-  height: 24px;
   border: none;
-  background: #ebebeb;
-  border-radius: 4px;
   color: rgba(13, 43, 80, 0.7);
-  padding: 0;
-  margin: 0; }
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 0; }
+  input[type='number']:focus {
+    outline: none; }
 
 .wrapper {
   position: relative;

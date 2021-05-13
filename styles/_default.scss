@@ -5,20 +5,23 @@ html {
 body {
   background-color: #ffffff;
   padding: 0;
+  margin: 0;
 }
 
 .container {
-  max-width: 580px;
-  height: 246px;
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 208px;
+  margin-bottom: 208px;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .container__heading {
-  font-family: 'Sailec';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
@@ -28,4 +31,22 @@ body {
   margin: 0;
   padding-top: 24px;
   padding-bottom: 32px;
+}
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 580px;
+    height: 246px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: unset;
+    margin-bottom: unset;
+    padding-left: unset;
+    padding-right: unset;
+  }
 }

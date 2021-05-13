@@ -32,41 +32,39 @@ const InputRange = () => {
   }
 
   return (
-    <form>
-      <div className='wrapper'>
-        <label className='wrapper__label' htmlFor='firstRange'>
-          <div
-            className='mask background1'
-            style={{
-              width: `${firstRangeValue}%`,
-            }}></div>
-          <input
-            className='wrapper__input--thumb1'
-            type='range'
-            id='firstRange'
-            min='0'
-            max='100'
-            value={firstRangeValue}
-            onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
-          />
-        </label>
-        <label className='wrapper__label' htmlFor='secondRange'>
-          <div
-            className=' mask background2'
-            style={{
-              width: `${100 - thirdRangeValue}%`,
-            }}></div>
-          <input
-            className='wrapper__input--thumb2'
-            type='range'
-            id='secondRange'
-            min='0'
-            max='100'
-            value={100 - thirdRangeValue}
-            onChange={(e) => onChangeSecondThumb(100 - Number(e.target.value))}
-          />
-        </label>
-      </div>
+    <form className='wrapper'>
+      <label className='wrapper__label' htmlFor='firstRange'>
+        <div
+          className='mask background1'
+          style={{
+            width: `${firstRangeValue}%`,
+          }}></div>
+        <input
+          className='wrapper__input--thumb1'
+          type='range'
+          id='firstRange'
+          min='0'
+          max='100'
+          value={firstRangeValue}
+          onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
+        />
+      </label>
+      <label className='wrapper__label' htmlFor='secondRange'>
+        <div
+          className=' mask background2'
+          style={{
+            width: `${100 - thirdRangeValue}%`,
+          }}></div>
+        <input
+          className='wrapper__input--thumb2'
+          type='range'
+          id='secondRange'
+          min='0'
+          max='100'
+          value={100 - thirdRangeValue}
+          onChange={(e) => onChangeSecondThumb(100 - Number(e.target.value))}
+        />
+      </label>
     </form>
   )
 }
