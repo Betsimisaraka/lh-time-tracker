@@ -21,9 +21,7 @@
 .tasks .tasks__label {
   @include small_font;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   color: rgba(13, 43, 80, 0.7);
   position: relative;
   padding-left: 20px;
@@ -34,9 +32,7 @@
     border-radius: 4px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-right: 0px;
-    padding-left: 0px;
+    margin-top: 10px;
   }
   & .tasks__label--span {
     width: 12px;
@@ -70,7 +66,20 @@ input[type='number'] {
   color: rgba(13, 43, 80, 0.7);
   margin: 0;
   padding: 0;
+  direction: rtl;
   &:focus {
     outline: none;
+  }
+}
+
+@media (min-width: 320px) {
+  .tasks .tasks__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    & .tasks__input--wrapper {
+      margin-top: unset;
+    }
   }
 }

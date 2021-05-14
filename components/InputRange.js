@@ -1,19 +1,16 @@
 import React from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setFirstRangeValue,
   setSecondRangeValue,
   setThirdRangeValue,
 } from '../redux/Actions'
-
 const InputRange = () => {
   const firstRangeValue = useSelector((state) => state.firstRangeValue)
   const secondRangeValue = useSelector((state) => state.secondRangeValue)
   const thirdRangeValue = useSelector((state) => state.thirdRangeValue)
   const dispatch = useDispatch()
-
-  const SlideFirstThumb = (value) => {
+  const onFirstThumbSlide = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     } else {
@@ -21,8 +18,7 @@ const InputRange = () => {
       dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     }
   }
-
-  const SlideSecondThumb = (value) => {
+  const onSecondThumbSlide = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     } else {
@@ -30,7 +26,6 @@ const InputRange = () => {
       dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     }
   }
-
   return (
     <form className='wrapper'>
       <label className='wrapper__label' htmlFor='firstRange'>
@@ -41,32 +36,32 @@ const InputRange = () => {
           }}></div>
         <input
           className='wrapper__input--thumb1'
+          role='slider'
           type='range'
           id='firstRange'
           min='0'
           max='100'
           value={firstRangeValue}
-          onChange={(e) => SlideFirstThumb(Number(e.target.value))}
+          aria-valuetext='firstRangeValue'
+          onChange={(e) => onFirstThumbSlide(Number(e.target.value))}
         />
       </label>
       <label className='wrapper__label' htmlFor='secondRange'>
         <div
           className=' mask background2'
-          style={{
-            width: `${100 - thirdRangeValue}%`,
-          }}></div>
+          style={{ width: `${100 - thirdRangeValue}%` }}></div>
         <input
           className='wrapper__input--thumb2'
           type='range'
+          role='slider'
           id='secondRange'
           min='0'
           max='100'
           value={100 - thirdRangeValue}
-          onChange={(e) => SlideSecondThumb(100 - Number(e.target.value))}
+          onChange={(e) => onSecondThumbSlide(100 - Number(e.target.value))}
         />
       </label>
     </form>
   )
 }
-
 export default InputRange

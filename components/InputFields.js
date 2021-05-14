@@ -85,7 +85,7 @@ const InputFields = () => {
             id='sprints'
             min='0'
             max='100'
-            value={thirdRangeValue}
+            value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
             onChange={(e) => onChangeThirdRange(Number(e.target.value))}
           />
           %
