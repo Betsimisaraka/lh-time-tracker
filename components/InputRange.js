@@ -1,15 +1,18 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import {
   setFirstRangeValue,
   setSecondRangeValue,
   setThirdRangeValue,
 } from '../redux/Actions'
+
 const InputRange = () => {
   const firstRangeValue = useSelector((state) => state.firstRangeValue)
   const secondRangeValue = useSelector((state) => state.secondRangeValue)
   const thirdRangeValue = useSelector((state) => state.thirdRangeValue)
   const dispatch = useDispatch()
+
   const onFirstThumbSlide = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
@@ -18,6 +21,7 @@ const InputRange = () => {
       dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     }
   }
+
   const onSecondThumbSlide = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
@@ -26,6 +30,7 @@ const InputRange = () => {
       dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     }
   }
+
   return (
     <form className='wrapper'>
       <label className='wrapper__label' htmlFor='firstRange'>
@@ -58,10 +63,12 @@ const InputRange = () => {
           min='0'
           max='100'
           value={100 - thirdRangeValue}
+          aria-valuetext='thirdRangeValue'
           onChange={(e) => onSecondThumbSlide(100 - Number(e.target.value))}
         />
       </label>
     </form>
   )
 }
+
 export default InputRange
