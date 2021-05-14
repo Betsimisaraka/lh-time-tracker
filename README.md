@@ -1,5 +1,4 @@
-<h1 align="center">LT Time tracker</h1>
-
+<h1 align="center">LH Time tracker</h1>
 <div align="center">
   <h3>
     <a href="https://github.com/Betsimisaraka/lh-time-tracker">
@@ -11,19 +10,24 @@
     </a>
   </h3>
 </div>
+<br/>
+
+A multi-range slider and value display component to determine how you divide your time.
+![application-screenshot](public\images\lh-time-tracker-screenshot.png)
 
 ### Build with
 
 - [React](https://reactjs.org/)
-- [Html](https://html.org/)
-- [Css](https://css.org)
+- [React-Redux](https://react-redux.js.org/)
+- [HTML5](https://html.org/)
+- [CSS](https://css.org)
 
 ### Functionality
 
 - There are two slider thumbs.
-- There are editable inputs for each values.
+- There are 3 input fields displaying each value as a percentage.
 - When the slider thumbs are dragged the percentage values are updated.
-- When the values are changed the slider position also changed according to the values.
+- When the values in the input fields change, the slider thumb positions also change in accordiance with those changed values.
 
 ### How to use
 
@@ -32,17 +36,23 @@ To clone and run this application, you'll need [Git](https://git-scm.com), [Node
 ```bash
 # Clone this repository
 $ git clone https://github.com/Betsimisaraka/lh-time-tracker
-
 # Install dependencies
 $ npm install
-
 # Run the app
 $ npm run start
 ```
 
-### Figma
+### Design
 
-Here is the link of the design in [Figma](https://www.figma.com/file/6FjQW1TqHZBy38Jh567a8K/?node-id=81%3A2)
+Design was provided by this [Figma](https://www.figma.com/file/6FjQW1TqHZBy38Jh567a8K/?node-id=81%3A2) file.
+
+### Development Notes
+
+- This project uses 2 React components:
+  - The `InputRange` component is used to display the range slider with 2 thumbs.
+  - `InputFields` component displays 3 fields with a label and a percentage value displayed for each field.
+- Redux is used to store and share the values of the 3 fields across the 2 components.
+- The Figma design included `Sailec` typography. I used `Roboto` instead to save on cost.
 
 ### Contact
 
