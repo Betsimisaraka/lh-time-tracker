@@ -13,7 +13,7 @@ const InputRange = () => {
   const thirdRangeValue = useSelector((state) => state.thirdRangeValue)
   const dispatch = useDispatch()
 
-  const onChangeFirstThumb = (value) => {
+  const SlideFirstThumb = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     } else {
@@ -22,7 +22,7 @@ const InputRange = () => {
     }
   }
 
-  const onChangeSecondThumb = (value) => {
+  const SlideSecondThumb = (value) => {
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     } else {
@@ -46,7 +46,7 @@ const InputRange = () => {
           min='0'
           max='100'
           value={firstRangeValue}
-          onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
+          onChange={(e) => SlideFirstThumb(Number(e.target.value))}
         />
       </label>
       <label className='wrapper__label' htmlFor='secondRange'>
@@ -62,7 +62,7 @@ const InputRange = () => {
           min='0'
           max='100'
           value={100 - thirdRangeValue}
-          onChange={(e) => onChangeSecondThumb(100 - Number(e.target.value))}
+          onChange={(e) => SlideSecondThumb(100 - Number(e.target.value))}
         />
       </label>
     </form>

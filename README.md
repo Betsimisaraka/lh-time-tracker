@@ -13,7 +13,7 @@
 <br/>
 
 A multi-range slider and value display component to determine how you divide your time.
-![application-screenshot](public\images\lh-time-tracker-screenshot.png)
+![application-screenshot](public/images/lh-time-tracker-screenshot.png)
 
 ### Build with
 

@@ -6,14 +6,16 @@ import {
   setThirdRangeValue,
 } from '../redux/Actions'
 
-const Tasks = () => {
+const InputFields = () => {
   const firstRangeValue = useSelector((state) => state.firstRangeValue)
   const thirdRangeValue = useSelector((state) => state.thirdRangeValue)
   const secondRangeValue = useSelector((state) => state.secondRangeValue)
 
   const dispatch = useDispatch()
 
-  const onChangeFirstThumb = (value) => {
+  const onChangeFirstRange = (value) => {
+    if (value < 0) return (value = 0)
+    if (value > 100) return (value = 100)
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     } else {
@@ -22,7 +24,9 @@ const Tasks = () => {
     }
   }
 
-  const onChangeMiddleRange = (value) => {
+  const onChangeSecondRange = (value) => {
+    if (value < 0) return (value = 0)
+    if (value > 100) return (value = 100)
     if (thirdRangeValue <= 0) {
       return dispatch(setThirdRangeValue(100 - firstRangeValue - value))
     }
@@ -30,7 +34,9 @@ const Tasks = () => {
     dispatch(setThirdRangeValue(100 - firstRangeValue - value))
   }
 
-  const onChangeSecondThumb = (value) => {
+  const onChangeThirdRange = (value) => {
+    if (value < 0) return (value = 0)
+    if (value > 100) return (value = 100)
     if (secondRangeValue <= 0) {
       return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     } else {
@@ -50,8 +56,9 @@ const Tasks = () => {
             min='0'
             max='100'
             value={firstRangeValue}
-            onChange={(e) => onChangeFirstThumb(Number(e.target.value))}
+            onChange={(e) => onChangeFirstRange(Number(e.target.value))}
           />
+          %
         </div>
         <span className='tasks__label--design tasks__label--span'></span>
       </label>
@@ -64,8 +71,9 @@ const Tasks = () => {
             min='0'
             max='100'
             value={secondRangeValue <= 0 ? 0 : secondRangeValue}
-            onChange={(e) => onChangeMiddleRange(Number(e.target.value))}
+            onChange={(e) => onChangeSecondRange(Number(e.target.value))}
           />
+          %
         </div>
         <span className='tasks__label--paceport tasks__label--span'></span>
       </label>
@@ -77,9 +85,10 @@ const Tasks = () => {
             id='sprints'
             min='0'
             max='100'
-            value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
-            onChange={(e) => onChangeSecondThumb(Number(e.target.value))}
+            value={thirdRangeValue}
+            onChange={(e) => onChangeThirdRange(Number(e.target.value))}
           />
+          %
         </div>
         <span className='tasks__label--sprints tasks__label--span'></span>
       </label>
@@ -87,4 +96,4 @@ const Tasks = () => {
   )
 }
 
-export default Tasks
+export default InputFields
