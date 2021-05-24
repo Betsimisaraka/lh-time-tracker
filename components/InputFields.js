@@ -4,6 +4,7 @@ import {
   setFirstRangeValue,
   setSecondRangeValue,
   setThirdRangeValue,
+  setIsHovered,
 } from '../redux/Actions'
 
 const InputFields = () => {
@@ -17,7 +18,7 @@ const InputFields = () => {
     if (value < 0) return (value = 0)
     if (value > 100) return (value = 100)
     if (secondRangeValue <= 0) {
-      return dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
+      dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
     } else {
       dispatch(setFirstRangeValue(value))
       dispatch(setSecondRangeValue(100 - thirdRangeValue - value))
@@ -27,18 +28,19 @@ const InputFields = () => {
   const onChangeSecondRange = (value) => {
     if (value < 0) return (value = 0)
     if (value > 100) return (value = 100)
-    if (thirdRangeValue <= 0) {
-      return dispatch(setThirdRangeValue(100 - firstRangeValue - value))
+    if (secondRangeValue <= 0 && thirdRangeValue <= 0) {
+      dispatch(setThirdRangeValue(100 - firstRangeValue - value))
+    } else {
+      dispatch(setSecondRangeValue(value))
+      dispatch(setThirdRangeValue(100 - firstRangeValue - value))
     }
-    dispatch(setSecondRangeValue(value))
-    dispatch(setThirdRangeValue(100 - firstRangeValue - value))
   }
 
   const onChangeThirdRange = (value) => {
     if (value < 0) return (value = 0)
     if (value > 100) return (value = 100)
     if (secondRangeValue <= 0) {
-      return dispatch(setSecondRangeValue(100 - firstRangeValue - value))
+      dispatch(setSecondRangeValue(100 - firstRangeValue - value))
     } else {
       dispatch(setThirdRangeValue(value))
       dispatch(setSecondRangeValue(100 - firstRangeValue - value))
@@ -56,7 +58,14 @@ const InputFields = () => {
             min='0'
             max='100'
             value={firstRangeValue}
-            onChange={(e) => onChangeFirstRange(Number(e.target.value))}
+            onChange={(e) => {
+              onChangeFirstRange(Number(e.target.value))
+            }}
+            onClick={(e) => {
+              e.target.select()
+            }}
+            onMouseOver={() => dispatch(setIsHovered(true))}
+            onMouseOut={() => dispatch(setIsHovered(false))}
           />
           %
         </div>
@@ -71,7 +80,14 @@ const InputFields = () => {
             min='0'
             max='100'
             value={secondRangeValue <= 0 ? 0 : secondRangeValue}
-            onChange={(e) => onChangeSecondRange(Number(e.target.value))}
+            onChange={(e) => {
+              onChangeSecondRange(Number(e.target.value))
+            }}
+            onClick={(e) => {
+              e.target.select()
+            }}
+            onMouseOver={() => dispatch(setIsHovered(true))}
+            onMouseOut={() => dispatch(setIsHovered(false))}
           />
           %
         </div>
@@ -86,7 +102,14 @@ const InputFields = () => {
             min='0'
             max='100'
             value={thirdRangeValue <= 0 ? 0 : thirdRangeValue}
-            onChange={(e) => onChangeThirdRange(Number(e.target.value))}
+            onChange={(e) => {
+              onChangeThirdRange(Number(e.target.value))
+            }}
+            onClick={(e) => {
+              e.target.select()
+            }}
+            onMouseOver={() => dispatch(setIsHovered(true))}
+            onMouseOut={() => dispatch(setIsHovered(false))}
           />
           %
         </div>

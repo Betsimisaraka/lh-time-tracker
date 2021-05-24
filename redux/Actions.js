@@ -12,3 +12,8 @@ export const setThirdRangeValue = (value) => ({
   type: 'SECOND_THUMB',
   payload: value,
 })
+
+export const setIsHovered = (bool) => ({
+  type: 'IS_HOVERED',
+  payload: bool,
+})
