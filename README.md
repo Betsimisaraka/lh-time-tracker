@@ -45,4 +45,4 @@ Design was provided by this [Figma](https://www.figma.com/file/6FjQW1TqHZBy38Jh5
 
 ### Contact
 
-GitHub [Betsimisaka](https://{github.com/Betsimisaraka})
+GitHub [Betsimisaka](https://github.com/Betsimisaraka)
